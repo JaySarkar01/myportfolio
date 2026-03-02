@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #030305;
+  --color-foreground: #ededed;
+  --color-neon-primary: #00f0ff;
+  --color-neon-secondary: #7000ff;
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-bg: rgba(10, 10, 15, 0.4);
+
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030305;
+  --foreground: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Hide default cursor on desktop explicitly for the custom cursor to work cleanly */
+@media (pointer: fine) {
+
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  .cursor-pointer {
+    cursor: none !important;
   }
 }
 
-body {
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(0, 240, 255, 0.3);
+  color: #fff;
+}
+
+/* Base Glassmorphism utility */
+@utility glass {
+  background: rgba(10, 10, 15, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Base Neon text utility */
+@utility text-neon {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+@utility text-neon-secondary {
+  text-shadow: 0 0 10px rgba(112, 0, 255, 0.5), 0 0 20px rgba(112, 0, 255, 0.3);
 }
