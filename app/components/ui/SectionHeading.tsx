@@ -16,7 +16,7 @@ export const SectionHeading = ({ title, subtitle, className }: SectionHeadingPro
   return (
     <div className={cn("flex flex-col items-center justify-center mb-16 md:mb-24", className)}>
       <motion.h2
-        className="text-4xl md:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50 text-center"
+        className="text-4xl md:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/50 text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -27,7 +27,7 @@ export const SectionHeading = ({ title, subtitle, className }: SectionHeadingPro
       
       {subtitle && (
         <motion.p
-          className="mt-4 text-lg md:text-xl text-white/60 text-center max-w-2xl font-light"
+          className="mt-4 text-lg md:text-xl text-foreground/60 text-center max-w-2xl font-light"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

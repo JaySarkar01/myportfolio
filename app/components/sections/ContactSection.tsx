@@ -41,23 +41,23 @@ export const ContactSection = () => {
           
           <div className="col-span-1 md:col-span-2 space-y-8">
             <div>
-              <h3 className="text-xl font-medium text-white mb-2">Connect</h3>
-              <p className="text-white/50 font-light text-sm mb-6">
+              <h3 className="text-xl font-medium text-foreground mb-2">Connect</h3>
+              <p className="text-foreground/50 font-light text-sm mb-6">
                 Feel free to reach out for collaborations or just a friendly hello.
               </p>
               
               <div className="flex flex-col gap-4">
-                <a href="mailto:hello@jaysarkar.dev">
+                <a href="mailto:jaisarkar200@gmail.com">
                   <AnimatedButton variant="outline" className="w-full justify-start" icon={<Mail className="w-4 h-4 ml-auto" />}>
                     Email Me
                   </AnimatedButton>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/JaySarkar01" target="_blank" rel="noopener noreferrer">
                   <AnimatedButton variant="outline" className="w-full justify-start" icon={<Github className="w-4 h-4 ml-auto" />}>
                     GitHub
                   </AnimatedButton>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/jay-sarkar-724669249/" target="_blank" rel="noopener noreferrer">
                   <AnimatedButton variant="outline" className="w-full justify-start" icon={<Linkedin className="w-4 h-4 ml-auto" />}>
                     LinkedIn
                   </AnimatedButton>
@@ -70,34 +70,34 @@ export const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs font-medium text-white/60 uppercase tracking-widest">Name</label>
+                  <label htmlFor="name" className="text-xs font-medium text-foreground/60 uppercase tracking-widest">Name</label>
                   <input 
                     id="name"
                     type="text" 
                     required
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[var(--color-neon-primary)] focus:ring-1 focus:ring-[var(--color-neon-primary)] transition-all font-light"
+                    className="w-full bg-background/40 border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder-foreground/40 focus:outline-none focus:border-[var(--neon-primary)] focus:ring-1 focus:ring-[var(--neon-primary)] transition-all font-light"
                     placeholder="Jane Doe"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-xs font-medium text-white/60 uppercase tracking-widest">Email</label>
+                  <label htmlFor="email" className="text-xs font-medium text-foreground/60 uppercase tracking-widest">Email</label>
                   <input 
                     id="email"
                     type="email" 
                     required
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[var(--color-neon-primary)] focus:ring-1 focus:ring-[var(--color-neon-primary)] transition-all font-light"
+                    className="w-full bg-background/40 border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder-foreground/40 focus:outline-none focus:border-[var(--neon-primary)] focus:ring-1 focus:ring-[var(--neon-primary)] transition-all font-light"
                     placeholder="jane@example.com"
                   />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="message" className="text-xs font-medium text-white/60 uppercase tracking-widest">Message</label>
+                <label htmlFor="message" className="text-xs font-medium text-foreground/60 uppercase tracking-widest">Message</label>
                 <textarea 
                   id="message"
                   required
                   rows={4}
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[var(--color-neon-primary)] focus:ring-1 focus:ring-[var(--color-neon-primary)] transition-all font-light resize-none"
+                  className="w-full bg-background/40 border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder-foreground/40 focus:outline-none focus:border-[var(--neon-primary)] focus:ring-1 focus:ring-[var(--neon-primary)] transition-all font-light resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>

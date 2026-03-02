@@ -1,20 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #030305;
-  --color-foreground: #ededed;
-  --color-neon-primary: #00f0ff;
-  --color-neon-secondary: #7000ff;
-  --color-glass-border: rgba(255, 255, 255, 0.08);
-  --color-glass-bg: rgba(10, 10, 15, 0.4);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neon-primary: var(--neon-primary);
+  --color-neon-secondary: var(--neon-secondary);
+  --color-glass-border: var(--glass-border);
+  --color-glass-bg: var(--glass-bg);
 
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 :root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --neon-primary: #00c3ff;
+  --neon-secondary: #5e00d9;
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+}
+
+.dark {
   --background: #030305;
   --foreground: #ededed;
+  --neon-primary: #00f0ff;
+  --neon-secondary: #7000ff;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(10, 10, 15, 0.4);
 }
 
 html,
@@ -69,11 +82,11 @@ body {
 
 /* Base Glassmorphism utility */
 @utility glass {
-  background: rgba(10, 10, 15, 0.4);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
 
 /* Base Neon text utility */

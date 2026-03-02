@@ -71,8 +71,8 @@ export const SkillsSection = () => {
             variants={containerVariants}
           >
             <GlassCard glowColor={category.glow} className="h-full">
-              <h3 className="text-xl font-medium text-white mb-6 flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-gradient-to-r from-[var(--color-neon-primary)] to-transparent" />
+              <h3 className="text-xl font-medium text-foreground mb-6 flex items-center gap-3">
+                <span className="w-8 h-[2px] bg-gradient-to-r from-[var(--neon-primary)] to-transparent" />
                 {category.title}
               </h3>
               
@@ -81,7 +81,7 @@ export const SkillsSection = () => {
                   <motion.span 
                     key={skill}
                     variants={itemVariants}
-                    className="px-4 py-2 rounded-full glass text-sm font-medium text-white/80 border-white/10 hover:border-[var(--color-neon-primary)] hover:text-white hover:bg-white/5 transition-colors cursor-default"
+                    className="px-4 py-2 rounded-full glass text-sm font-medium text-foreground/80 border-foreground/10 hover:border-[var(--neon-primary)] hover:text-foreground hover:bg-foreground/5 transition-colors cursor-default"
                   >
                     {skill}
                   </motion.span>

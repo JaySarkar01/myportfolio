@@ -76,7 +76,7 @@ export const FloatingSidebar = () => {
             key={item.href}
             href={item.href}
             onClick={(e) => scrollTo(e, item.href)}
-            className="relative p-3 rounded-full flex flex-col md:flex-row items-center justify-center text-white/50 hover:text-white transition-colors group cursor-pointer"
+            className="relative p-3 rounded-full flex flex-col md:flex-row items-center justify-center text-foreground/50 hover:text-foreground transition-colors group cursor-pointer"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -84,7 +84,7 @@ export const FloatingSidebar = () => {
             {isActive && (
               <motion.div
                 layoutId="active-indicator"
-                className="absolute inset-0 bg-white/10 rounded-full border border-white/20"
+                className="absolute inset-0 bg-foreground/10 rounded-full border border-foreground/20"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
@@ -96,7 +96,7 @@ export const FloatingSidebar = () => {
                   initial={{ opacity: 0, y: 10, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 5, scale: 0.8 }}
-                  className="absolute md:hidden -top-12 px-3 py-1 bg-black/80 backdrop-blur-md rounded-md text-xs font-medium border border-white/10 whitespace-nowrap text-white text-neon shadow-[0_4px_20px_rgba(0,240,255,0.4)]"
+                  className="absolute md:hidden -top-12 px-3 py-1 bg-background/80 backdrop-blur-md rounded-md text-xs font-medium border border-foreground/10 whitespace-nowrap text-foreground text-neon shadow-[0_4px_20px_rgba(0,240,255,0.4)]"
                 >
                   {item.name}
                 </motion.div>
@@ -107,7 +107,7 @@ export const FloatingSidebar = () => {
               <Icon 
                 className={cn(
                   "w-5 h-5 transition-transform duration-300",
-                  isActive ? "text-[var(--color-neon-primary)] scale-110" : "group-hover:scale-110 group-hover:text-white"
+                  isActive ? "text-[var(--neon-primary)] scale-110" : "group-hover:scale-110 group-hover:text-foreground"
                 )} 
               />
               {/* Expanded Text (Desktop Only) */}

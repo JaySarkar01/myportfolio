@@ -44,7 +44,7 @@ export const Preloader = () => {
             y: "-100%", 
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
           }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#030305]"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
         >
           {/* Futuristic Loading Ring */}
           <div className="relative w-40 h-40 flex items-center justify-center">
@@ -53,7 +53,7 @@ export const Preloader = () => {
             
             {/* Spinning rings */}
             <svg className="absolute w-full h-full animate-spin-slow" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+              <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" className="text-foreground/5" strokeWidth="1" />
               <motion.circle 
                 cx="50" cy="50" r="48" 
                 fill="none" 
@@ -66,11 +66,11 @@ export const Preloader = () => {
             </svg>
             
             <svg className="absolute w-3/4 h-3/4 animate-[spin_3s_linear_infinite_reverse]" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-              <circle cx="50" cy="50" r="48" fill="none" stroke="var(--color-neon-secondary)" strokeWidth="1" strokeDasharray="50 300" />
+              <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" className="text-foreground/5" strokeWidth="1" />
+              <circle cx="50" cy="50" r="48" fill="none" stroke="var(--neon-secondary)" strokeWidth="1" strokeDasharray="50 300" />
             </svg>
             
-            <div className="absolute flex flex-col items-center text-white">
+            <div className="absolute flex flex-col items-center text-foreground">
               <span className="text-3xl font-black tabular-nums tracking-tighter">
                 {progress}
               </span>
@@ -81,7 +81,7 @@ export const Preloader = () => {
           </div>
           
           <motion.div 
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 w-64 h-[1px] bg-white/10"
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 w-64 h-[1px] bg-foreground/10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}

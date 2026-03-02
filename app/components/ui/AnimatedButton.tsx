@@ -36,10 +36,10 @@ export const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButton
     const baseStyles = "relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-colors overflow-hidden";
     
     const variants = {
-      primary: "bg-white text-black hover:bg-white/90",
-      secondary: "bg-[var(--color-neon-primary)] text-black hover:bg-[var(--color-neon-primary)]/90",
-      outline: "border border-white/20 hover:border-white/40 hover:bg-white/5",
-      ghost: "hover:bg-white/10",
+      primary: "bg-foreground text-background hover:bg-foreground/90",
+      secondary: "bg-[var(--neon-primary)] text-background hover:bg-[var(--neon-primary)]/90",
+      outline: "border border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5",
+      ghost: "hover:bg-foreground/10",
     };
 
     return (

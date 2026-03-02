@@ -29,8 +29,8 @@ export const GlassCard = ({
     <motion.div
       onMouseMove={handleMouseMove}
       className={cn(
-        "relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden group",
-        "shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]",
+        "relative rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl overflow-hidden group",
+        "shadow-[0_8px_32px_0_rgba(0,0,0,0.15)]",
         className
       )}
       initial={{ opacity: 0, y: 30 }}
@@ -58,7 +58,7 @@ export const GlassCard = ({
         <div
           className={cn(
             "absolute -inset-[1px] opacity-20 blur-xl rounded-2xl pointer-events-none transition-opacity duration-500",
-            glowColor === "primary" ? "bg-[var(--color-neon-primary)]" : "bg-[var(--color-neon-secondary)]"
+            glowColor === "primary" ? "bg-[var(--neon-primary)]" : "bg-[var(--neon-secondary)]"
           )}
         />
       )}

@@ -28,21 +28,21 @@ export const EducationSection = () => {
             <div className="relative z-10 p-4 md:p-8">
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                     Master of Computer Applications (MCA)
                   </h3>
-                  <p className="text-white/60 text-lg">
-                    Status: <span className="text-[var(--color-neon-primary)] font-medium">Pursuing</span>
+                  <p className="text-foreground/60 text-lg">
+                    Status: <span className="text-[var(--neon-primary)] font-medium">Pursuing</span>
                   </p>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md self-start md:self-auto">
-                  <span className="w-2 h-2 rounded-full bg-[var(--color-neon-primary)] animate-pulse" />
-                  <span className="text-sm font-medium text-white/80">Active Student</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-foreground/10 bg-foreground/5 backdrop-blur-md self-start md:self-auto">
+                  <span className="w-2 h-2 rounded-full bg-[var(--neon-primary)] animate-pulse" />
+                  <span className="text-sm font-medium text-foreground/80">Active Student</span>
                 </div>
               </div>
               
-              <div className="border-t border-white/10 pt-8 mt-4">
-                <h4 className="text-sm uppercase tracking-widest text-white/40 font-medium mb-6 flex items-center gap-2">
+              <div className="border-t border-foreground/10 pt-8 mt-4">
+                <h4 className="text-sm uppercase tracking-widest text-foreground/40 font-medium mb-6 flex items-center gap-2">
                   <BookOpen className="w-4 h-4" /> Focus Areas
                 </h4>
                 <div className="flex flex-wrap gap-4">
@@ -53,7 +53,7 @@ export const EducationSection = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
-                      className="px-5 py-3 rounded-xl bg-black/40 border border-white/5 text-white/80 font-medium hover:border-[var(--color-neon-primary)]/50 transition-colors"
+                      className="px-5 py-3 rounded-xl bg-background/40 border border-foreground/5 text-foreground/80 font-medium hover:border-[var(--neon-primary)]/50 transition-colors"
                     >
                       {focus}
                     </motion.div>

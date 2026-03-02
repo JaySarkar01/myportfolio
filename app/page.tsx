@@ -13,14 +13,14 @@ import { CustomCursor } from "@/app/components/ui/CustomCursor";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--color-background)] text-white selection:bg-[var(--color-neon-primary)]/30 overflow-x-hidden md:cursor-none">
+    <main className="min-h-screen bg-[var(--color-background)] text-foreground selection:bg-[var(--color-neon-primary)]/30 overflow-x-hidden md:cursor-none">
       <Preloader />
       <CustomCursor />
       
       <TopNavbar />
       <HeroSection />
       
-      <div className="relative z-10 bg-[#030305]/80 backdrop-blur-3xl">
+      <div className="relative z-10 bg-background/80 backdrop-blur-3xl">
         <AboutSection />
         <EducationSection />
         <SkillsSection />

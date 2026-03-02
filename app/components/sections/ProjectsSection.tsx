@@ -8,22 +8,28 @@ import React from 'react';
 
 const projects = [
   {
-    title: "EduCore ERP System",
-    description: "A complete student management and ERP system with authentication, dashboards, and academic tracking.",
+    title: "J-aiChatBot",
+    description: "AI-Powered Chatbot with Next.js & Gemini API",
     tags: ["Next.js", "Node.js", "MongoDB"],
     glow: "primary" as const,
+    github: "https://github.com/JaySarkar01/J-aiChatBot.git",
+    live: "#",
   },
   {
-    title: "Billing System",
-    description: "Full stack billing and client management system with authentication and dashboard routing.",
+    title: "Chatify",
+    description: "Full-Stack Chat App with Auth & Emails",
     tags: ["React", "Node.js", "MongoDB"],
     glow: "secondary" as const,
+    github: "https://github.com/JaySarkar01/chatify-1.git",
+    live: "#",
   },
   {
-    title: "Client Dashboard",
-    description: "Interactive dashboard with deep analytics, secure authentication, and a modern UI.",
+    title: "TaskFlow",
+    description: "Task Management App with Next.js & Supabase",
     tags: ["Next.js", "Tailwind", "Express"],
     glow: "primary" as const,
+    github: "https://github.com/JaySarkar01/TaskFlow.git",
+    live: "#",
   }
 ];
 
@@ -53,10 +59,10 @@ export const ProjectsSection = () => {
             >
               <GlassCard glowColor={project.glow} className="h-full flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--color-neon-primary)] group-hover:to-white transition-all">
+                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--neon-primary)] group-hover:to-foreground transition-all">
                     {project.title}
                   </h3>
-                  <p className="text-white/60 font-light leading-relaxed mb-8">
+                  <p className="text-foreground/60 font-light leading-relaxed mb-8">
                     {project.description}
                   </p>
                   
@@ -64,7 +70,7 @@ export const ProjectsSection = () => {
                     {project.tags.map(tag => (
                       <span 
                         key={tag} 
-                        className="text-xs font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/80"
+                        className="text-xs font-mono px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-foreground/80"
                       >
                         {tag}
                       </span>
@@ -72,11 +78,11 @@ export const ProjectsSection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
-                  <a href="#" className="flex items-center gap-2 text-sm font-medium text-white hover:text-[var(--color-neon-primary)] transition-colors">
+                <div className="flex items-center gap-4 mt-auto pt-6 border-t border-foreground/10">
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[var(--neon-primary)] transition-colors">
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
-                  <a href="#" className="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
                     <Github className="w-4 h-4" /> Source Code
                   </a>
                 </div>

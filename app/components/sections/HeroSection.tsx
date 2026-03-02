@@ -33,7 +33,7 @@ export const HeroSection = () => {
       {mounted && <HeroScene />}
       
       {/* Overlay gradient for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030305] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
       
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center px-4 mt-20 md:mt-0 text-center">
@@ -54,7 +54,7 @@ export const HeroSection = () => {
         </div>
         
         <motion.div
-          className="h-8 md:h-10 text-lg md:text-2xl text-white/80 mb-10 font-light flex items-center justify-center"
+          className="h-8 md:h-10 text-lg md:text-2xl text-foreground/80 mb-10 font-light flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -93,9 +93,9 @@ export const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
       >
-        <span className="text-xs uppercase tracking-widest text-white/40">Scroll</span>
+        <span className="text-xs uppercase tracking-widest text-foreground/40">Scroll</span>
         <motion.div
-          className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent"
+          className="w-[1px] h-12 bg-gradient-to-b from-foreground/40 to-transparent"
           animate={{
             y: [0, 10, 0],
             opacity: [0.4, 1, 0.4]
