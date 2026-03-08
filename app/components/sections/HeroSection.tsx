@@ -13,19 +13,21 @@ const HeroScene = dynamic(
   { ssr: false }
 );
 
-export const HeroSection = () => {
+export const HeroSection = ({ data }: { data?: any }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const roles = [
+  const roles = data?.roles?.length ? data.roles : [
     "Full Stack Developer",
     "Java Full Stack Aspirant",
     "Next.js Developer",
     "Building immersive and scalable web applications"
   ];
+  
+  const title = data?.title || "Jay Sarkar";
   
   return (
     <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -47,7 +49,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-primary)] to-[var(--color-neon-secondary)] text-neon drop-shadow-2xl py-2">
-                Jay Sarkar
+                {title}
               </span>
             </motion.h1>
           )}

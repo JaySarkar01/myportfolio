@@ -7,7 +7,7 @@ import { GlassCard } from "@/app/components/ui/GlassCard";
 import { AnimatedButton } from "@/app/components/ui/AnimatedButton";
 import { Send, CheckCircle2, Mail, Github, Linkedin } from "lucide-react";
 
-export const ContactSection = () => {
+export const ContactSection = ({ data }: { data?: any }) => {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -47,17 +47,17 @@ export const ContactSection = () => {
               </p>
               
               <div className="flex flex-col gap-4">
-                <a href="mailto:jaisarkar200@gmail.com">
+                <a href={`mailto:${data?.email || 'jaisarkar200@gmail.com'}`}>
                   <AnimatedButton variant="outline" className="w-full justify-start" icon={<Mail className="w-4 h-4 ml-auto" />}>
                     Email Me
                   </AnimatedButton>
                 </a>
-                <a href="https://github.com/JaySarkar01" target="_blank" rel="noopener noreferrer">
+                <a href={data?.github || "https://github.com/JaySarkar01"} target="_blank" rel="noopener noreferrer">
                   <AnimatedButton variant="outline" className="w-full justify-start" icon={<Github className="w-4 h-4 ml-auto" />}>
                     GitHub
                   </AnimatedButton>
                 </a>
-                <a href="https://www.linkedin.com/in/jay-sarkar-724669249/" target="_blank" rel="noopener noreferrer">
+                <a href={data?.linkedin || "https://www.linkedin.com/in/jay-sarkar-724669249/"} target="_blank" rel="noopener noreferrer">
                   <AnimatedButton variant="outline" className="w-full justify-start" icon={<Linkedin className="w-4 h-4 ml-auto" />}>
                     LinkedIn
                   </AnimatedButton>

@@ -18,7 +18,8 @@ const experiences = [
   }
 ];
 
-export const ExperienceSection = () => {
+export const ExperienceSection = ({ data }: { data?: any[] }) => {
+  const finalExperiences = data && data.length > 0 ? data : experiences;
   return (
     <section id="experience" className="relative w-full py-24 md:py-32 px-4 md:px-8 max-w-5xl mx-auto">
       <SectionHeading 
@@ -31,8 +32,15 @@ export const ExperienceSection = () => {
         <div className="absolute left-0 md:left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[var(--color-neon-primary)] via-[var(--color-neon-secondary)] to-transparent opacity-30 hidden md:block" />
         
         <div className="space-y-12">
-          {experiences.map((exp, idx) => (
-            <motion.div
+          {finalExperiences.map((exp: any, idx: number) => {
+            const descriptionArray = Array.isArray(exp.description) 
+              ? exp.description 
+              : exp.description 
+                ? [exp.description] 
+                : [];
+                
+            return (
+              <motion.div
               key={exp.role}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -55,7 +63,7 @@ export const ExperienceSection = () => {
                 </div>
                 
                 <ul className="space-y-4">
-                  {exp.description.map((item, i) => (
+                  {descriptionArray.map((item: string, i: number) => (
                     <motion.li 
                       key={i}
                       initial={{ opacity: 0, y: 10 }}
@@ -71,7 +79,7 @@ export const ExperienceSection = () => {
                 </ul>
               </GlassCard>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

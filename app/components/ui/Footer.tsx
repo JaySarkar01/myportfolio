@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export const Footer = () => {
@@ -8,8 +9,10 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         <div className="text-center md:text-left">
-          <p className="text-foreground/80 font-medium mb-2">© 2026 Jay Sarkar</p>
-          <p className="text-foreground/40 text-sm font-light">
+          <Link href="/admin/login" className="text-foreground/80 font-medium mb-2 hover:text-[var(--neon-primary)] transition-colors cursor-default">
+            © 2026 Jay Sarkar
+          </Link>
+          <p className="text-foreground/40 text-sm font-light mt-2">
             Built with Next.js, Three.js, and Tailwind CSS
           </p>
         </div>

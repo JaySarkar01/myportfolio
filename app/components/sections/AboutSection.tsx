@@ -6,7 +6,7 @@ import { GlassCard } from "@/app/components/ui/GlassCard";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { Layout, Server } from "lucide-react";
 
-export const AboutSection = () => {
+export const AboutSection = ({ data }: { data?: any }) => {
   const containerRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -28,15 +28,24 @@ export const AboutSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-24">
         <GlassCard glowColor="primary" className="p-8 md:p-12">
           <h3 className="text-2xl font-semibold mb-6 text-foreground">&lt; Hello World /&gt;</h3>
-          <p className="text-foreground/70 leading-relaxed mb-6 text-lg font-light">
-            I am a passionate <span className="text-foreground font-medium">Full Stack Developer</span> and <span className="text-foreground font-medium">MCA student</span> focused on building modern, scalable, and high-performance web applications.
-          </p>
-          <p className="text-foreground/70 leading-relaxed mb-6 text-lg font-light">
-            I specialize in creating responsive, interactive, and visually immersive applications using modern technologies like Next.js, React, Node.js, and MongoDB. I enjoy solving complex problems, designing beautiful interfaces, and creating smooth user experiences.
-          </p>
-          <p className="text-foreground/70 leading-relaxed text-lg font-light">
-            Currently, I am actively preparing for software developer roles and continuously improving my skills in full stack development and system design.
-          </p>
+          {data?.description ? (
+            <div 
+              className="text-foreground/70 leading-relaxed text-lg font-light space-y-4 whitespace-pre-wrap"
+              dangerouslySetInnerHTML={{ __html: data.description }} 
+            />
+          ) : (
+            <>
+              <p className="text-foreground/70 leading-relaxed mb-6 text-lg font-light">
+                I am a passionate <span className="text-foreground font-medium">Full Stack Developer</span> and <span className="text-foreground font-medium">MCA student</span> focused on building modern, scalable, and high-performance web applications.
+              </p>
+              <p className="text-foreground/70 leading-relaxed mb-6 text-lg font-light">
+                I specialize in creating responsive, interactive, and visually immersive applications using modern technologies like Next.js, React, Node.js, and MongoDB. I enjoy solving complex problems, designing beautiful interfaces, and creating smooth user experiences.
+              </p>
+              <p className="text-foreground/70 leading-relaxed text-lg font-light">
+                Currently, I am actively preparing for software developer roles and continuously improving my skills in full stack development and system design.
+              </p>
+            </>
+          )}
         </GlassCard>
         
         {/* Abstract floating elements container */}

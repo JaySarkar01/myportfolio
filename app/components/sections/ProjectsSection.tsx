@@ -33,7 +33,8 @@ const projects = [
   }
 ];
 
-export const ProjectsSection = () => {
+export const ProjectsSection = ({ data }: { data?: any[] }) => {
+  const finalProjects = data && data.length > 0 ? data : projects;
   return (
     <section id="projects" className="relative w-full py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
       <SectionHeading 
@@ -42,7 +43,7 @@ export const ProjectsSection = () => {
       />
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-16">
-        {projects.map((project, idx) => (
+        {finalProjects.map((project: any, idx: number) => (
           <motion.div
             key={project.title}
             initial={{ opacity: 0, y: 50 }}
@@ -67,7 +68,7 @@ export const ProjectsSection = () => {
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map(tag => (
+                    {project.tags?.map((tag: string) => (
                       <span 
                         key={tag} 
                         className="text-xs font-mono px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-foreground/80"
@@ -79,12 +80,16 @@ export const ProjectsSection = () => {
                 </div>
                 
                 <div className="flex items-center gap-4 mt-auto pt-6 border-t border-foreground/10">
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[var(--neon-primary)] transition-colors">
-                    <ExternalLink className="w-4 h-4" /> Live Demo
-                  </a>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
-                    <Github className="w-4 h-4" /> Source Code
-                  </a>
+                  {project.live && project.live !== "#" && (
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[var(--neon-primary)] transition-colors">
+                      <ExternalLink className="w-4 h-4" /> Live Demo
+                    </a>
+                  )}
+                  {project.github && project.github !== "#" && (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-foreground/50 hover:text-foreground transition-colors">
+                      <Github className="w-4 h-4" /> Source Code
+                    </a>
+                  )}
                 </div>
               </GlassCard>
             </motion.div>

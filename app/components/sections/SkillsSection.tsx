@@ -32,7 +32,9 @@ const skillCategories = [
   }
 ];
 
-export const SkillsSection = () => {
+export const SkillsSection = ({ data }: { data?: any[] }) => {
+  const finalCategories = data && data.length > 0 ? data : skillCategories;
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -62,7 +64,7 @@ export const SkillsSection = () => {
       />
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-        {skillCategories.map((category, idx) => (
+        {finalCategories.map((category: any, idx: number) => (
           <motion.div
             key={category.title}
             initial="hidden"
@@ -77,15 +79,18 @@ export const SkillsSection = () => {
               </h3>
               
               <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill) => (
-                  <motion.span 
-                    key={skill}
-                    variants={itemVariants}
-                    className="px-4 py-2 rounded-full glass text-sm font-medium text-foreground/80 border-foreground/10 hover:border-[var(--neon-primary)] hover:text-foreground hover:bg-foreground/5 transition-colors cursor-default"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
+                {category.skills?.map((skill: any) => {
+                  const skillName = typeof skill === "string" ? skill : skill.name;
+                  return (
+                    <motion.span 
+                      key={skillName}
+                      variants={itemVariants}
+                      className="px-4 py-2 rounded-full glass text-sm font-medium text-foreground/80 border-foreground/10 hover:border-[var(--neon-primary)] hover:text-foreground hover:bg-foreground/5 transition-colors cursor-default"
+                    >
+                      {skillName}
+                    </motion.span>
+                  );
+                })}
               </div>
             </GlassCard>
           </motion.div>
