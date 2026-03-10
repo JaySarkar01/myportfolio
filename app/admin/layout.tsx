@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Metadata } from "next";
+import { CustomCursor } from "@/app/components/ui/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard | Portfolio",
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-[var(--color-background)] text-foreground selection:bg-[var(--color-neon-primary)]/30">
+    <div className="min-h-screen bg-[var(--color-background)] text-foreground selection:bg-[var(--color-neon-primary)]/30 md:cursor-none">
+      <CustomCursor />
       <nav className="w-full glass py-4 px-6 flex justify-between items-center border-b border-[var(--glass-border)] z-50 sticky top-0">
         <h1 className="text-xl font-bold text-neon">Portfolio Admin</h1>
         <div className="flex gap-4">
