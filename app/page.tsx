@@ -10,27 +10,10 @@ import { FloatingSidebar } from "@/app/components/ui/FloatingDock";
 import { Footer } from "@/app/components/ui/Footer";
 import { Preloader } from "@/app/components/ui/Preloader";
 import { CustomCursor } from "@/app/components/ui/CustomCursor";
-import connectToDatabase from "@/app/lib/db";
-import { Portfolio } from "@/app/models/Portfolio";
 
-// We revalidate occasionally so updates show up without needing a rebuild,
-// but since this relies on a DB query, we'll keep it dynamic or use Next.js caching.
-export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  let portfolioData: any = null;
-  try {
-    await connectToDatabase();
-    const doc = await Portfolio.findOne().sort({ createdAt: -1 }).lean();
-    if (doc) {
-      // lean() returns a plain JS object, safely stringify to remove ObjectIds
-      portfolioData = JSON.parse(JSON.stringify(doc));
-    }
-  } catch (error) {
-    console.error("Failed to fetch portfolio data:", error);
-  }
-
-  const data = portfolioData || {};
+  const data: any = {};
 
   return (
     <main className="min-h-screen bg-[var(--color-background)] text-foreground selection:bg-[var(--color-neon-primary)]/30 overflow-x-hidden md:cursor-none">
